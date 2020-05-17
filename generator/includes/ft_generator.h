@@ -6,7 +6,7 @@
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 11:59:35 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/17 15:07:29 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/17 17:23:02 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,13 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "libft.h"
+# include <time.h>
+
+typedef enum
+{
+	false,
+	true
+}	t_bool;
 
 typedef struct	s_params
 {
@@ -49,5 +55,18 @@ void			ft_print_links(t_params params);
 void			ft_free_list(t_link **list, int size);
 t_link			**ft_init_list(int size);
 t_link			*ft_create_link(int room_id);
+
+/*
+**  utils
+*/
+
+int				ft_atoi(const char *str);
+int				ft_base_10(char *str);
+int				ft_is_int(char *str);
+void			ft_putnbr(int numb);
+void			ft_putstr(const char *s);
+void			ft_putstrendl(const char *str);
+void			ft_putstrnb(const char *str, int nb);
+int				ft_randnumb(int max);
 
 #endif

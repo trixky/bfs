@@ -6,7 +6,7 @@
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 00:35:50 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/17 15:07:03 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/17 17:23:55 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,11 @@ static void			ft_links(int room_id,
 		ft_putnbr(tmp->room_id);
 		ft_putstr("\n");
 	}
-	// ft_printf("-------- Room %d Nb of link %d \n", room_id, list[room_id]->nb);
 }
+
+/*
+** printf("-------- Room %d Nb of link %d \n", room_id, list[room_id]->nb);
+*/
 
 void				ft_print_links(t_params params)
 {

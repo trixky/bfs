@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
+/*   ft_is_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paszhang <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 16:13:12 by paszhang          #+#    #+#             */
-/*   Updated: 2019/10/11 12:24:03 by paszhang         ###   ########.fr       */
+/*   Created: 2020/05/11 01:46:34 by paszhang          #+#    #+#             */
+/*   Updated: 2020/05/17 17:14:58 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_generator.h"
 
-t_list	*ft_lstlast(t_list *lst)
+int		ft_is_int(char *str)
 {
-	if (lst == NULL)
-		return (0);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	long ret;
+
+	if (!ft_base_10(str))
+		return (false);
+	ret = ft_atoi(str);
+	if (ret < -2147483648 || ret > 2147483647)
+		return (false);
+	return (true);
 }

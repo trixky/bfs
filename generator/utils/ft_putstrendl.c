@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_putstrendl.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paszhang <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 15:25:34 by paszhang          #+#    #+#             */
-/*   Updated: 2019/10/11 15:44:12 by paszhang         ###   ########.fr       */
+/*   Created: 2020/05/11 01:47:53 by paszhang          #+#    #+#             */
+/*   Updated: 2020/05/17 17:14:40 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_generator.h"
 
-int	ft_isalpha(int c)
+void	ft_putstrendl(const char *str)
 {
-	if (c >= 'a' && c <= 'z')
-		return (1);
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	return (0);
+	if (!str)
+		return ;
+	while (*str)
+		write(1, str++, 1);
+	write(1, "\n", 1);
 }

@@ -9,11 +9,15 @@ SOURCE 				=\
 					ft_link.c\
 					ft_list.c
 
-LIBFT_DIRECTORY 	= ./libft/
-
-LIBFT 				= $(LIBFT_DIRECTORY)libft.a
-
-LIBRARIES 			= -lft -L $(LIBFT_DIRECTORY)
+UTIL				=\
+					ft_atoi.c\
+					ft_is_int.c\
+					ft_putstr.c\
+					ft_putstrnb.c\
+					ft_randnumb.c\
+					ft_base_10.c\
+					ft_putnbr.c\
+					ft_putstrendl.c
 
 INCLUDES 			= -I ./includes
 
@@ -21,38 +25,37 @@ FLAGS 				= -Wall -Wextra -Werror
 
 SOURCES_DIRECTORY 	= srcs/
 
+UTIL_DIRECTORY		= utils/
+
 OBJECTS_DIRECTORY 	= objects/
 
 SOURCES 			= $(addprefix $(SOURCES_DIRECTORY), $(SOURCE))
 
-OBJS 				= $(SOURCE:%.c=%.o)
+UTILS 			= $(addprefix $(UTIL_DIRECTORY), $(UTIL))
+
+OBJS 				= $(SOURCE:%.c=%.o) $(UTIL:%.c=%.o)
 
 OBJECTS				= $(addprefix $(OBJECTS_DIRECTORY), $(OBJS))
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(OBJECTS_DIRECTORY) $(OBJECTS) 
-	@$(CC) $(FLAGS) libft/objects/* $(INCLUDES) $(OBJECTS) -o $(NAME)
+$(NAME): $(OBJECTS_DIRECTORY) $(OBJECTS) 
+	@$(CC) $(FLAGS) $(INCLUDES) $(OBJECTS) -o $(NAME)
 	@echo "$(NAME) : $(GREEN)Compilation done.$(RESET)"
-
-$(LIBFT):
-	@$(MAKE) -sC $(LIBFT_DIRECTORY)
 
 $(OBJECTS_DIRECTORY):
 	@mkdir -p $(OBJECTS_DIRECTORY)
 	@echo "$(NAME): $(GREEN)$(OBJECTS_DIRECTORY) was created$(RESET)"
 
-$(OBJECTS): $(SOURCES) 
+$(OBJECTS): $(SOURCES) $(UTILS)
 	@$(CC) $(FLAGS) $(INCLUDES) -c $^
 	@mv *.o $(OBJECTS_DIRECTORY)
 
 clean:
-	@$(MAKE) -sC $(LIBFT_DIRECTORY) clean
 	@rm -rf $(OBJECTS_DIRECTORY)
 	@echo "$(RED)Clean done.$(RESET)"
 
 fclean: clean
-	@$(MAKE) -sC $(LIBFT_DIRECTORY) fclean
 	@rm -rf $(NAME) 
 	@echo "$(RED)Fclean done.$(RESET)"
 

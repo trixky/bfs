@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrendl.c                                    :+:      :+:    :+:   */
+/*   ft_putstrnb.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/11 01:47:53 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/11 01:48:22 by paszhang         ###   ########.fr       */
+/*   Created: 2020/05/17 00:16:47 by paszhang          #+#    #+#             */
+/*   Updated: 2020/05/17 17:15:05 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_generator.h"
 
-void	ft_putstrendl(const char *str)
+void	ft_putstrnb(const char *str, int nb)
 {
-	if (!str)
-		return ;
-	while (*str)
-		write(1, str++, 1);
-	write(1, "\n", 1);
+	ft_putstr(str);
+	ft_putstr(" : ");
+	ft_putnbr(nb);
+	ft_putstr("\n");
 }

@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paszhang <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 13:13:14 by paszhang          #+#    #+#             */
-/*   Updated: 2019/10/11 12:50:53 by paszhang         ###   ########.fr       */
+/*   Created: 2019/10/07 15:23:00 by paszhang          #+#    #+#             */
+/*   Updated: 2020/05/17 17:23:22 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_generator.h"
 
-int	ft_tolower(int c)
+void	ft_putstr(const char *s)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c - ('A' - 'a'));
-	return (c);
+	if (s == NULL)
+		return ;
+	while (*s)
+		write(1, s++, 1);
 }

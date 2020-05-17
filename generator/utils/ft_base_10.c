@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_base_10.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paszhang <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 15:25:02 by paszhang          #+#    #+#             */
-/*   Updated: 2019/10/14 17:41:32 by paszhang         ###   ########.fr       */
+/*   Created: 2020/05/11 01:44:40 by paszhang          #+#    #+#             */
+/*   Updated: 2020/05/17 17:14:55 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_generator.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int		ft_base_10(char *str)
 {
-	if (s == NULL)
-		return ;
-	while (*s)
-		write(fd, s++, 1);
-	write(fd, "\n", 1);
+	int i;
+
+	i = str[0] == '-' ? 0 : -1;
+	while (str[++i])
+		if (str[i] < 48 || str[i] > 57)
+			return (0);
+	return (1);
 }

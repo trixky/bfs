@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_randnumb.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paszhang <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 13:21:36 by paszhang          #+#    #+#             */
-/*   Updated: 2019/10/11 14:58:07 by paszhang         ###   ########.fr       */
+/*   Created: 2020/05/16 21:55:36 by paszhang          #+#    #+#             */
+/*   Updated: 2020/05/17 17:15:09 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_generator.h"
 
-char	*ft_strrchr(const char *s, int c)
+/*
+** don't forget to initial srand(time(NULL));
+*/
+
+int	ft_randnumb(int max)
 {
-	char *src;
-	char *save;
+	int nb;
 
-	src = (char *)s;
-	save = 0;
-	while (*src)
-	{
-		if (*src == c)
-			save = src;
-		src++;
-	}
-	if (*src == c)
-		save = src;
-	return (save);
+	nb = rand();
+	while (nb > max)
+		nb %= max;
+	return (nb);
 }
