@@ -6,7 +6,7 @@
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 11:59:35 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/17 12:01:59 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/17 15:07:29 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct	s_params
 	int	max_tubes;
 	int	begin_tubes;
 	int	exit_tubes;
-
+	int	indic;
 }				t_params;
 
 typedef struct	s_link

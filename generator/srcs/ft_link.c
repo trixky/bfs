@@ -6,7 +6,7 @@
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 00:35:50 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/17 12:51:12 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/17 15:07:03 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,15 @@ static t_link		*ft_choice_link(int start_id,
 		new->next = list[start_id];
 		new->nb = list[start_id] ? list[start_id]->nb + 1 : 1;
 		list[start_id] = new;
-		ft_putnbr(room);
 		return (new);
 	}
 	if (room == params.nb_rooms - 1)
+	{
+		if (params.indic)
+			return (NULL);
+		params.indic = 1;
 		return (ft_choice_link(start_id, list, 0, params));
+	}
 	else
 		return (ft_choice_link(start_id, list, room + 1, params));
 }
@@ -70,16 +74,20 @@ static void			ft_links(int room_id,
 							t_link **list,
 							t_params params)
 {
-	int i;
-	int room;
+	int		i;
+	int		room;
+	t_link	*tmp;
 
 	i = 0;
 	while (i++ < nb_tubes)
 	{
+		params.indic = 0;
+		room = ft_randnumb(params.nb_rooms);
+		if (!(tmp = ft_choice_link(room_id, list, room, params)))
+			return ;
 		ft_putnbr(room_id);
 		ft_putstr("-");
-		room = ft_randnumb(params.nb_rooms);
-		ft_choice_link(room_id, list, room, params);
+		ft_putnbr(tmp->room_id);
 		ft_putstr("\n");
 	}
 	// ft_printf("-------- Room %d Nb of link %d \n", room_id, list[room_id]->nb);
@@ -99,10 +107,11 @@ void				ft_print_links(t_params params)
 	list = ft_init_list(params.nb_rooms);
 	ft_links(0, params.begin_tubes, list, params);
 	i = 1;
-	while (i < params.nb_rooms - 1)
+	while ((i < params.nb_rooms - 1) && params.nb_rooms > 3)
 	{
 		randnumb = ft_randnumb(params.max_tubes);
 		ft_links(i++, randnumb ? randnumb : 1, list, params);
 	}
-	ft_links(i, params.exit_tubes, list, params);
+	ft_links(params.nb_rooms - 1, params.exit_tubes, list, params);
+	ft_free_list(list, params.nb_rooms);
 }
