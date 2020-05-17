@@ -68,7 +68,7 @@ RED = \033[0;31m
 RESET = \033[0m
 
 test: all
-	./Generator 10 10 3 4 5
+	./Generator $$(ruby -e "a= (1..50).to_a.shuffle; puts a[1..5].join(' ')")
 big: all
 	./Generator 10 100 30 40 50
 small: all
