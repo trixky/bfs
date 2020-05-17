@@ -6,7 +6,7 @@
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 00:35:55 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/17 13:47:08 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/17 17:26:38 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,6 @@
 ** av[4] = Number of tubes for the entry
 ** av[5] = Number of tubes for the exit
 */
-
-static void		ft_print_arg(char *av[])
-{
-	ft_putstrnb("Number of Ant", ft_atoi(av[1]));
-	ft_putstrnb("Number of Room", ft_atoi(av[2]));
-	ft_putstrnb("Number of max tube / room", ft_atoi(av[3]));
-	ft_putstrnb("Number of tubes for entry", ft_atoi(av[4]));
-	ft_putstrnb("Number of tubes for exit", ft_atoi(av[5]));
-}
 
 static t_bool	ft_error_arg(void)
 {
@@ -78,7 +69,6 @@ int				main(int ac, char *av[])
 	if (ac != 6)
 		return (ft_error_arg());
 	srand(time(NULL));
-	ft_print_arg(av);
 	params = ft_init_param(av);
 	if (!params.nb_ants)
 		return (ft_error_arg_value());
