@@ -34,3 +34,18 @@ int		ft_is_number(char c)
 {
 	return (c >= '0' && c <= '9');
 }
+
+void	ft_exit(t_af *af, int error)
+{
+	int	exit_code;
+	// free all af components
+
+	exit_code = EXIT_SUCCESS;
+	if (error > FALSE)
+	{
+		ft_putstr_fd("ERROR\n", STDERR_FILENO);
+		printf("numero %d\n", error);
+		exit_code = EXIT_FAILURE;
+	}
+	exit(exit_code);	
+}

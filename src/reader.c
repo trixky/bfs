@@ -19,7 +19,6 @@ void	ft_add_buff(t_af *af, int buff_len)
 
 	i = -1;
 	j = -1;
-	// buff_len = ft_strlen(af->buff);
 	conf_len = ft_strlen(af->conf);
 	new_conf = (char *)malloc(sizeof(char) * (buff_len + conf_len + 1));
 

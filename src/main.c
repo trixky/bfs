@@ -7,4 +7,5 @@ int main(void)
 	ft_init_af(&af);
 	ft_read_config(&af);
 	printf("%s", af.conf);
+	ft_parser(&af);
 }
