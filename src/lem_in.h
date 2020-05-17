@@ -13,7 +13,7 @@
 */
 
 /*
-**	error code : 1 | 2 | 3 | 4
+**	error code : 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 */
 
 #include <unistd.h>
@@ -73,6 +73,25 @@ void	ft_exit(t_af *af, int error);
 int	ft_str_to_nbr(t_af *af, char *str, int start, int end);
 
 /*
+**	---------------------- tools-parser-1.c
+*/
+
+int		ft_skip_comment(t_af *af, int pos);
+int		ft_parse_start_command_line(t_af *af, int pos);
+int		ft_parse_end_command_line(t_af *af, int pos);
+int		ft_parse_unknown_command_line(t_af *af, int pos);
+int		ft_evaluate_commande(t_af *af, int pos);
+
+/*
+**	---------------------- tools-parser-2.c
+*/
+
+int		ft_is_room_char(char c);
+int		ft_is_room_line(t_af *af, int pos);
+int		ft_parse_room_line(t_af *af, int pos);
+
+
+/*
 **	---------------------- reader.c
 */
 
@@ -90,7 +109,6 @@ void	ft_init_af(t_af *af);
 **	---------------------- parser.c
 */
 
-int		ft_skip_comment(t_af *af, int pos);
 int		ft_parse_ant(t_af *af, int pos);
 int		ft_parse_rooms(t_af *af, int pos);
 int		ft_parse_pipes(t_af *af, int pos);
