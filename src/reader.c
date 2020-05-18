@@ -10,17 +10,19 @@ char	*ft_clear_buff(t_af *af)
 	return (af->buff);
 }
 
-void	ft_add_buff(t_af *af, int buff_len)
+void	ft_add_buff(t_af *af)
 {
 	int 	i;
 	int		j;
 	int 	conf_len;
+	int		buff_len;
 	char	*new_conf;
 
 	i = -1;
 	j = -1;
 	conf_len = ft_strlen(af->conf);
-	new_conf = (char *)malloc(sizeof(char) * (buff_len + conf_len + 1));
+	buff_len = ft_strlen(af->buff);
+	new_conf = (char *)malloc(sizeof(char) * (conf_len + buff_len + 2));
 
 	while (++i < conf_len)
 		new_conf[i] = af->conf[i];
@@ -33,11 +35,9 @@ void	ft_add_buff(t_af *af, int buff_len)
 
 char	*ft_read_config(t_af *af)
 {
-	int ret;
-
-	while ((ret = read(STDIN_FILENO, af->buff, BUFFER_SIZE)) > 0)
+	while (read(STDIN_FILENO, af->buff, BUFFER_SIZE) > 0)
 	{
-		ft_add_buff(af, ret);
+		ft_add_buff(af);
 		ft_clear_buff(af);
 	}
 }

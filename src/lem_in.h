@@ -13,7 +13,7 @@
 */
 
 /*
-**	error code : 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+**	error code : 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 */
 
 #include <unistd.h>
@@ -24,7 +24,7 @@
 #define	NOTHING			-1
 #define FALSE			0
 #define TRUE			1
-#define BUFFER_SIZE		3
+#define BUFFER_SIZE		400
 
 #define	SIMPLE_ROOM		0
 #define	START_ROOM		1
@@ -38,10 +38,10 @@ typedef struct	s_connected_room
 
 typedef struct	s_room
 {
-	char						*name;
+	int							name_pos_start;
+	int							name_pos_end;
 	int							type;
 	int							dist;
-	int							pipes;
 	struct	s_connected_room	*connected_rooms;
 	struct	s_room				*next;
 }				t_room;
@@ -85,18 +85,24 @@ int		ft_evaluate_commande(t_af *af, int pos);
 /*
 **	---------------------- tools-parser-2.c
 */
-
+t_room	*ft_create_and_init_room(void);
 int		ft_is_room_char(char c);
 int		ft_is_room_line(t_af *af, int pos);
 int		ft_parse_room_line(t_af *af, int pos);
 
+/*
+**	---------------------- tools-parser-3.c
+*/
+
+int 	ft_is_pipe_line(t_af *af, int pos);
+int		ft_parse_pipe_line(t_af *af, int pos);
 
 /*
 **	---------------------- reader.c
 */
 
 char	*ft_clear_buff(t_af *af);
-void	ft_add_buff(t_af *af, int buff_len);
+void	ft_add_buff(t_af *af);
 char	*ft_read_config(t_af *af);
 
 /*
@@ -114,5 +120,11 @@ int		ft_parse_rooms(t_af *af, int pos);
 int		ft_parse_pipes(t_af *af, int pos);
 void	ft_parser(t_af *af);
 
+/*
+**	---------------------- rooms-1.c
+*/
+
+t_room	*ft_add_room(t_af *af, t_room *room);
+void	ft_show_room(t_af *af);
 
 #endif
