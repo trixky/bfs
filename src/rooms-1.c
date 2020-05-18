@@ -8,9 +8,10 @@ t_room *ft_create_and_init_room(void)
 	room->reserved = FALSE;
 	room->traveled = FALSE;
 	room->type = SIMPLE_ROOM;
-	room->dist = 0;
+	room->dist = NOTHING;
 	room->pipes = NULL;
 	room->next = NULL;
+	return (room);
 }
 
 t_room	*ft_add_room(t_af *af, t_room *room)
