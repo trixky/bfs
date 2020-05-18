@@ -6,7 +6,7 @@
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 00:35:58 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/17 12:11:56 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/18 10:19:32 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ void			ft_principal(t_params params)
 	ft_init_array(array_y, params.nb_rooms + 100);
 	ft_putnbr(params.nb_ants);
 	ft_putstr("\n");
-	ft_putstrendl("#start");
+	ft_putstrendl("##start");
 	while (i < params.nb_rooms)
 	{
 		if (i + 1 == params.nb_rooms)
-			ft_putstrendl("#end");
+			ft_putstrendl("##end");
 		ft_room_coordoned(i++, array_x, array_y);
 	}
 	ft_print_links(params);
