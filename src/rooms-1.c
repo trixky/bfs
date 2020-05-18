@@ -5,8 +5,10 @@ t_room *ft_create_and_init_room(void)
 	t_room *room;
 
 	room = (t_room *)malloc(sizeof(t_room) * 1);
+	room->reserved = FALSE;
+	room->traveled = FALSE;
 	room->type = SIMPLE_ROOM;
-	room->dist = NOTHING;
+	room->dist = 0;
 	room->pipes = NULL;
 	room->next = NULL;
 }

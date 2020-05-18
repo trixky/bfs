@@ -38,6 +38,8 @@ typedef struct	s_pipe
 
 typedef struct	s_room
 {
+	int							reserved;
+	int							traveled;
 	int							name_pos_start;
 	int							name_pos_end;
 	int							type;

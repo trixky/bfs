@@ -1,3 +1,4 @@
 *.o
 a.out
 lem_in
+src/a.out
