@@ -1,15 +1,6 @@
 #include "lem_in.h"
 
-t_room *ft_create_and_init_room(void)
-{
-	t_room *room;
 
-	room = (t_room *)malloc(sizeof(t_room) * 1);
-	room->type = SIMPLE_ROOM;
-	room->dist = NOTHING;
-	room->connected_rooms = NULL;
-	room->next = NULL;
-}
 
 int 	ft_is_room_char(char c)
 {
@@ -47,7 +38,6 @@ int 	ft_is_room_line(t_af *af, int pos)
 
 int		ft_parse_room_line(t_af *af, int pos)
 {
-	int i;
 	t_room *room;
 
 	room = ft_create_and_init_room();
@@ -62,7 +52,6 @@ int		ft_parse_room_line(t_af *af, int pos)
 		af->next_is_end = FALSE;
 		room->type = END_ROOM;
 	}
-	i = 0;
 	room->name_pos_start = pos;
 	while (af->conf[pos] && af->conf[pos] != ' ')
 	{
