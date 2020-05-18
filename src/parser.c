@@ -3,7 +3,6 @@
 int		ft_parse_ant(t_af *af, int pos)
 {
 	int start;
-	printf("****************** ft_parse_ant\n");
 
 	pos = ft_evaluate_commande(af, pos);
 	start = pos;
@@ -20,7 +19,6 @@ int		ft_parse_ant(t_af *af, int pos)
 
 int		ft_parse_rooms(t_af *af, int pos)
 {
-	printf("****************** ft_parse_rooms\n");
 	int last_pos;
 
 	last_pos = NOTHING;
@@ -37,7 +35,6 @@ int		ft_parse_rooms(t_af *af, int pos)
 
 int		ft_parse_pipes(t_af *af, int pos)
 {
-	printf("****************** ft_parse_pipes\n");
 
 	int last_pos;
 
@@ -58,7 +55,6 @@ void	ft_parser(t_af *af)
 	int pos;
 
 	pos = ft_parse_pipes(af, ft_parse_rooms(af, ft_parse_ant(af, 0)));
-	printf("************************* ft_parser FINAL [%s][%d]\n", af->conf + pos - 3, af->conf[pos]);
 	if (af->conf[pos] != '\0')
 		ft_exit(af, 9);
 

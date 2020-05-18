@@ -4,11 +4,8 @@ int		ft_skip_comment(t_af *af, int pos)
 {
 	if (af->conf[pos] && af->conf[pos] == '#'
 			&& af->conf[pos + 1] && af->conf[pos + 1] != '#')
-	{
-		printf("-------- ft_skip_comment\n");
 		while (af->conf[pos] && af->conf[pos] != '\n')
 			pos++;
-	}
 	else
 		return (pos);	
 	return (ft_skip_comment(af, ++pos));
@@ -25,7 +22,6 @@ int		ft_parse_start_command_line(t_af *af, int pos)
 			af->conf[pos + 6] && af->conf[pos + 6] == 't' &&
 			af->conf[pos + 7] && af->conf[pos + 7] == '\n')
 	{
-		printf("-------- ft_parse_start_command_line\n");
 		if (af->next_is_start != NOTHING ||
 				af->next_is_end == TRUE)
 			ft_exit(af, 5);
@@ -44,7 +40,6 @@ int		ft_parse_end_command_line(t_af *af, int pos)
 			af->conf[pos + 4] && af->conf[pos + 4] == 'd' &&
 			af->conf[pos + 5] && af->conf[pos + 5] == '\n')
 	{
-		printf("-------- ft_parse_end_command_line\n");
 		if (af->next_is_end != NOTHING ||
 				af->next_is_start == TRUE)
 			ft_exit(af, 6);
@@ -59,7 +54,6 @@ int		ft_parse_unknown_command_line(t_af *af, int pos)
 	if (af->conf[pos] && af->conf[pos] == '#' &&
 			af->conf[pos + 1] && af->conf[pos + 1] == '#')
 	{
-		printf("-------- ft_parse_unknown_command_line\n");
 		while (af->conf[pos] && af->conf[pos] != '\n')
 			pos++;
 		pos++;

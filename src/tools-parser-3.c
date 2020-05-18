@@ -19,7 +19,6 @@ int 	ft_is_pipe_line(t_af *af, int pos)
 			return (FALSE);
 		pos++;
 	}
-	printf("-------- ft_is_pipe_line\n");
 	return (TRUE);
 }
 
@@ -45,7 +44,6 @@ int		ft_parse_pipe_line(t_af *af, int pos)
 	room_b = ft_find_room(af, start, pos);
 	if (room_a == NULL || room_b == NULL)
 		ft_exit(af, 13);
-	printf("trouver [%d] [%d]\n", room_a->name_pos_start, room_b->name_pos_start);
 	ft_add_pipe(af, room_a, room_b);
 	return (++pos);
 }

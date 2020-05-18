@@ -32,7 +32,6 @@ int 	ft_is_room_line(t_af *af, int pos)
 			return (FALSE);
 		pos++;
 	}
-	printf("-------- ft_is_room_line\n");
 	return (TRUE);
 }
 
