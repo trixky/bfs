@@ -57,5 +57,6 @@ void	ft_parser(t_af *af)
 	pos = ft_parse_pipes(af, ft_parse_rooms(af, ft_parse_ant(af, 0)));
 	if (af->conf[pos] != '\0')
 		ft_exit(af, 9);
-
+	if (af->room_start == NULL || af->room_end == NULL)
+		ft_exit(af, 14);
 }
