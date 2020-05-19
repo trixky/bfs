@@ -54,6 +54,8 @@ void	ft_parser(t_af *af)
 {
 	int pos;
 
+	if (af->conf == NULL || af->conf[0] != '\0')
+		ft_exit(af, 15);
 	pos = ft_parse_pipes(af, ft_parse_rooms(af, ft_parse_ant(af, 0)));
 	if (af->conf[pos] != '\0')
 		ft_exit(af, 9);
