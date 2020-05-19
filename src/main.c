@@ -10,4 +10,6 @@ int main(void)
 	ft_putstr_fd("\n\n", STDOUT_FILENO);
 	ft_parser(&af);
 	ft_show_room(&af);
+
+	// ft_bfs
 }

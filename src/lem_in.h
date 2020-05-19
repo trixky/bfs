@@ -53,6 +53,8 @@ typedef struct	s_af
 	char			*conf;
 	char			buff[BUFFER_SIZE + 1];
 	struct s_room	*rooms;
+	struct s_room	*room_start;
+	struct s_room	*room_end;
 	int				ant;
 	int				next_is_start;
 	int				next_is_end;
@@ -137,6 +139,7 @@ t_room	*ft_find_room(t_af *af, int start, int end);
 */
 
 int		ft_room_cmp(t_room *room_a, t_room *room_b);
+void	ft_clear_rooms(t_af *af);
 
 /*
 **	---------------------- pipes-1.c
