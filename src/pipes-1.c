@@ -54,3 +54,52 @@ void	ft_add_pipe(t_af *af, t_room *room_a, t_room *room_b)
 		temp_pipe_b->next = new_pipe_b;
 	}
 }
+
+t_pipe	*ft_push_back_pipe(t_pipe *pipes, t_pipe *pipe)
+{
+	t_pipe *temp;
+
+	if (pipes == NULL)
+		return (pipe);
+	temp = pipes;
+	printf("                       (fff)()\n");
+	while (temp->next != NULL)
+	{
+		printf("                       ()()\n");
+		temp = temp->next;
+	}
+	temp->next = pipe;
+	return (pipes);
+}
+
+t_pipe	*ft_pop_front_pipe(t_pipe *pipes)
+{
+	t_pipe *temp;
+
+	if (pipes != NULL)
+	{
+		if (pipes->next == NULL)
+			return (ft_free(pipes));
+		temp = pipes->next;
+		// temp = ft_free(pipes);
+		pipes = temp;
+	}
+	return (pipes);
+}
+
+// int		ft_pipes_len(t_pipe *pipes)
+// {
+// 	int		len;
+// 	t_pipe	*temp;
+
+// 	len = 0;
+// 	if (pipes != NULL)
+// 	{
+// 		if (pipes->next == NULL)
+// 			return (ft_free(pipes));
+// 		temp = pipes->next;
+// 		temp = ft_free(pipes);
+// 		pipes = temp;
+// 	}
+// 	return (pipes);
+// }

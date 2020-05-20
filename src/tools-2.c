@@ -28,3 +28,31 @@ int	ft_strcmp(char *a, int a_len, char *b, int b_len)
 			return (FALSE);
 	return (TRUE);
 }
+
+void	ft_putnbr(int nbr)
+{
+	char c;
+
+	if (nbr > 2147483647 || nbr < -2147483648)
+		return ;
+	if (nbr == -2147483648)
+	{
+		ft_putstr_fd("-2147483648", STDOUT_FILENO);
+		return ;
+	}
+	if (nbr < 0)
+	{
+		nbr = nbr * -1;
+		ft_putstr_fd("-", STDOUT_FILENO);
+	}
+	if (nbr < 10)
+	{
+		c = nbr + '0';
+		write(STDOUT_FILENO, &c, 1);
+		return ;
+	}
+	ft_putnbr(nbr / 10);
+	c = (nbr % 10) + '0';
+	write(STDOUT_FILENO, &c, 1);
+	return ;
+}

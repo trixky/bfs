@@ -9,7 +9,8 @@ int main(void)
 	ft_putstr_fd(af.conf, STDOUT_FILENO);
 	ft_putstr_fd("\n\n", STDOUT_FILENO);
 	ft_parser(&af);
-	ft_show_room(&af);
-
+	ft_show_rooms(&af);
+	ft_bfs(&af);
+	ft_show_rooms(&af);
 	// ft_bfs
 }

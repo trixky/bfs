@@ -53,6 +53,7 @@ int		ft_parse_room_line(t_af *af, int pos)
 	{
 		af->next_is_start = FALSE;
 		room->type = START_ROOM;
+		room->dist = 0;
 		af->room_start = room;
 	}
 	else if (af->next_is_end == TRUE)

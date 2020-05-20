@@ -31,7 +31,7 @@ t_room	*ft_add_room(t_af *af, t_room *room)
 	return (room);
 }
 
-void	ft_show_room(t_af *af)
+void	ft_show_rooms(t_af *af)
 {
 	t_room *temp_room;
 	t_pipe *temp_pipe;
@@ -40,13 +40,14 @@ void	ft_show_room(t_af *af)
 	ft_putstr_fd("\n========= SHOW ROOMS =========\n\n", STDOUT_FILENO);
 	while (temp_room != NULL)
 	{
-		ft_putstr_fd("   --- ", STDOUT_FILENO);
+		ft_putstr_fd("   --- [", STDOUT_FILENO);
+		ft_putnbr(temp_room->dist);
+		ft_putstr_fd("] ", STDOUT_FILENO);
 		write(STDOUT_FILENO, af->conf + temp_room->name_pos_start, temp_room->name_pos_end - temp_room->name_pos_start);
 		if (temp_room->type == START_ROOM)
 			ft_putstr_fd(" [ START ]", STDOUT_FILENO);
 		else if (temp_room->type == END_ROOM)
 			ft_putstr_fd(" [ END ]", STDOUT_FILENO);
-
 		ft_putstr_fd("\n", STDOUT_FILENO);
 		temp_pipe = temp_room->pipes;
 		while (temp_pipe != NULL)

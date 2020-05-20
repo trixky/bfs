@@ -76,6 +76,7 @@ void	ft_exit(t_af *af, int error);
 
 int	ft_str_to_nbr(t_af *af, char *str, int start, int end);
 int	ft_strcmp(char *a, int a_len, char *b, int b_len);
+void	ft_putnbr(int nbr);
 
 /*
 **	---------------------- tools-parser-1.c
@@ -130,7 +131,7 @@ void	ft_parser(t_af *af);
 
 t_room	*ft_create_and_init_room(void);
 t_room	*ft_add_room(t_af *af, t_room *room);
-void	ft_show_room(t_af *af);
+void	ft_show_rooms(t_af *af);
 void	ft_check_doubled_rooms(t_af *af, t_room *room);
 t_room	*ft_find_room(t_af *af, int start, int end);
 
@@ -140,6 +141,15 @@ t_room	*ft_find_room(t_af *af, int start, int end);
 
 int		ft_room_cmp(t_room *room_a, t_room *room_b);
 void	ft_clear_rooms(t_af *af);
+int		ft_find_best_dist(t_room *room);
+void	ft_give_best_dist(t_room *room);
+t_pipe	*ft_add_rooms_to_go(t_af *af, t_room *room, t_pipe *pipes);
+
+/*
+**	---------------------- rooms-3.c
+*/
+
+void	ft_show_room(t_af *af, t_room *temp_room);
 
 /*
 **	---------------------- pipes-1.c
@@ -147,5 +157,14 @@ void	ft_clear_rooms(t_af *af);
 
 int		ft_pipe_already_exist(t_af *af, t_room *room_a, t_room *room_b);
 void	ft_add_pipe(t_af *af, t_room *room_a, t_room *room_b);
+t_pipe	*ft_push_back_pipe(t_pipe *pipes, t_pipe *pipe);
+t_pipe	*ft_pop_front_pipe(t_pipe *pipes);
+
+/*
+**	---------------------- bfs.c
+*/
+
+void	ft_show_rooms_to_go(t_af *af, t_pipe *rooms_to_go);
+void	ft_bfs(t_af *af);
 
 #endif
