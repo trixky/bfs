@@ -58,26 +58,17 @@ t_pipe	*ft_add_rooms_to_go(t_af *af, t_room *room, t_pipe *pipes)
 	t_pipe	*new_pipe;
 
 	temp = room->pipes;
-	printf("&&&&&&&&&&&&&&& ft_add_rooms_to_go\n");
-	ft_show_room(af, room);
 	while (temp != NULL)
 	{
-		printf("   &&& while start\n");
 		if (temp->room->traveled == FALSE && temp->room->reserved == FALSE)
 		{
-			printf("      &&& push\n");
 			new_pipe = (t_pipe *)malloc(sizeof(t_pipe) * 1);
 			temp->room->dist = room->dist + 1;
 			temp->room->traveled = TRUE;
 			new_pipe->room = temp->room;
 			new_pipe->next = NULL;
 			pipes = ft_push_back_pipe(pipes, new_pipe);
-			printf("^^^\n");
-			ft_show_rooms_to_go(af, pipes);
-			printf("^^^\n");
 		}
-		ft_show_room(af, temp->room);
-		// printf("   &&& while end\n");
 		temp = temp->next;
 	}
 	return (pipes);

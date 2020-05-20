@@ -77,6 +77,7 @@ void	ft_exit(t_af *af, int error);
 int	ft_str_to_nbr(t_af *af, char *str, int start, int end);
 int	ft_strcmp(char *a, int a_len, char *b, int b_len);
 void	ft_putnbr(int nbr);
+void	ft_free_rooms_and_their_paths(t_af *af);
 
 /*
 **	---------------------- tools-parser-1.c
@@ -166,5 +167,15 @@ t_pipe	*ft_pop_front_pipe(t_pipe *pipes);
 
 void	ft_show_rooms_to_go(t_af *af, t_pipe *rooms_to_go);
 void	ft_bfs(t_af *af);
+
+/*
+**	---------------------- path.c
+*/
+
+t_pipe	*ft_find_best_room(t_room *room);
+t_room	*ft_find_last_room_path(t_pipe *path);
+int		ft_path_len(t_pipe *path);
+int		ft_path_is_valid(t_pipe *path);
+t_pipe	*ft_find_path(t_af *af);
 
 #endif

@@ -62,12 +62,8 @@ t_pipe	*ft_push_back_pipe(t_pipe *pipes, t_pipe *pipe)
 	if (pipes == NULL)
 		return (pipe);
 	temp = pipes;
-	printf("                       (fff)()\n");
 	while (temp->next != NULL)
-	{
-		printf("                       ()()\n");
 		temp = temp->next;
-	}
 	temp->next = pipe;
 	return (pipes);
 }

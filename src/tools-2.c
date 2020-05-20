@@ -56,3 +56,26 @@ void	ft_putnbr(int nbr)
 	write(STDOUT_FILENO, &c, 1);
 	return ;
 }
+
+void	ft_free_rooms_and_their_paths(t_af *af)
+{
+	t_room	*temp_room;
+	t_room	*free_room;
+	t_pipe	*temp_pipe;
+	t_pipe	*free_pipe;
+
+	temp_room = af->rooms;
+	while (temp_room != NULL)
+	{
+		temp_pipe = temp_room->pipes;
+		while (temp_pipe != NULL)
+		{
+			free_pipe = temp_pipe;
+			temp_pipe = temp_pipe->next;
+			ft_free(free_pipe);
+		}
+		free_room = temp_room;
+		temp_room = temp_room->next;
+		ft_free(free_room);
+	}
+}
