@@ -16,7 +16,10 @@ t_pipe	*ft_find_best_room(t_af *af, t_room *room)
 	{
 		tr = temp->room;
 		if (tr->reserved == FALSE && tr->dist != NOTHING && tr->type != END_ROOM && (tr->dist < best_dist || best_dist == NOTHING) && (room->type != END_ROOM || temp->room->type != START_ROOM || af->path_start_end_finded == FALSE))
+		{
+			best_dist = tr->dist;
 			new_pipe->room = tr;
+		}
 		temp = temp->next;
 	}
 	if (new_pipe->room != NULL && new_pipe->room->type != START_ROOM)
@@ -76,9 +79,6 @@ t_pipe	*ft_find_path(t_af *af)
 	}
 	printf("============================= END find_path\n");
 	if (ft_path_is_valid(path) && ft_path_len(path) == 1)
-	{
 		af->path_start_end_finded = TRUE;
-		printf("********(((((((((((((((&&&&&&&&&&&&&&&&&&&&&&&\n");
-	}
 	return (path);
 }

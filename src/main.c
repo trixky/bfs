@@ -4,9 +4,9 @@ void	ft_pascal(t_af *af)
 {
 	t_pipe	*temp_path;
 
-	ft_show_rooms(af); // affiche toutes les rooms
 
 	ft_bfs(af); // par de start jusque end (scan tout)
+	ft_show_rooms(af); // affiche toutes les rooms
 	temp_path = ft_find_path(af); // trouve le meilleur chemin selon le "scan de bfs"
 	printf("path is valid ? %d\n", ft_path_is_valid(temp_path)); // retourne 1 si valide
 	printf("len is ? %d\n\n", ft_path_len(temp_path)); // len du chemin
