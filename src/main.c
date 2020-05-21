@@ -2,23 +2,33 @@
 
 void	ft_pascal(t_af *af)
 {
-	// ft_show_rooms(&af);
 	t_pipe	*temp_path;
 
-	ft_bfs(af); // par de start jusque end (recherche)
-	temp_path = ft_find_path(af);
-	printf("path is valid ? %d\n", ft_path_is_valid(temp_path));
-	printf("len is ? %d\n\n", ft_path_len(temp_path));
+	ft_show_rooms(af); // affiche toutes les rooms
 
-	ft_bfs(af);
-	temp_path = ft_find_path(af);
-	printf("path is valid ? %d\n", ft_path_is_valid(temp_path));
-	printf("len is ? %d\n\n", ft_path_len(temp_path));
+	ft_bfs(af); // par de start jusque end (scan tout)
+	temp_path = ft_find_path(af); // trouve le meilleur chemin selon le "scan de bfs"
+	printf("path is valid ? %d\n", ft_path_is_valid(temp_path)); // retourne 1 si valide
+	printf("len is ? %d\n\n", ft_path_len(temp_path)); // len du chemin
+	ft_free_path(temp_path); // fonction pour free des path
 
-	ft_bfs(af);
+	ft_bfs(af);						// identique ...
 	temp_path = ft_find_path(af);
 	printf("path is valid ? %d\n", ft_path_is_valid(temp_path));
 	printf("len is ? %d\n\n", ft_path_len(temp_path));
+	ft_free_path(temp_path);
+
+	ft_bfs(af);						// identique ...
+	temp_path = ft_find_path(af);
+	printf("path is valid ? %d\n", ft_path_is_valid(temp_path));
+	printf("len is ? %d\n\n", ft_path_len(temp_path));
+	ft_free_path(temp_path);
+
+	ft_bfs(af);						// identique ...
+	temp_path = ft_find_path(af);
+	printf("path is valid ? %d\n", ft_path_is_valid(temp_path));
+	printf("len is ? %d\n\n", ft_path_len(temp_path));
+	ft_free_path(temp_path);
 }
 
 int main(void)

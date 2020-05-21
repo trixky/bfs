@@ -23,12 +23,12 @@ void	ft_add_buff(t_af *af)
 	conf_len = ft_strlen(af->conf);
 	buff_len = ft_strlen(af->buff);
 	new_conf = (char *)malloc(sizeof(char) * (conf_len + buff_len + 2));
-
 	while (++i < conf_len)
 		new_conf[i] = af->conf[i];
 	while (++j < buff_len)
 		new_conf[i + j] = af->buff[j];
 	new_conf[i + j] = '\0';
+	new_conf[i + j + 1] = '\0';
 	ft_free(af->conf);
 	af->conf = new_conf;
 }

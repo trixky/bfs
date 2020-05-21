@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-t_pipe	*ft_find_best_room(t_room *room)
+t_pipe	*ft_find_best_room(t_af *af, t_room *room)
 {
 	int		best_dist;
 	t_pipe	*new_pipe;
@@ -9,20 +9,18 @@ t_pipe	*ft_find_best_room(t_room *room)
 
 	best_dist = NOTHING;
 	new_pipe = (t_pipe *)malloc(sizeof(t_pipe) * 1);
+	new_pipe->room = NULL;
+	new_pipe->next = NULL;
 	temp = room->pipes;
 	while (temp != NULL)
 	{
 		tr = temp->room;
-		if (tr->reserved == FALSE && tr->dist != NOTHING && tr->type != END_ROOM && (tr->dist < best_dist || best_dist == NOTHING))
+		if (tr->reserved == FALSE && tr->dist != NOTHING && tr->type != END_ROOM && (tr->dist < best_dist || best_dist == NOTHING) && (room->type != END_ROOM || temp->room->type != START_ROOM || af->path_start_end_finded == FALSE))
 			new_pipe->room = tr;
 		temp = temp->next;
 	}
-	new_pipe->next = NULL;
-	if (new_pipe->room != NULL)
-	{
-		if (new_pipe->room->type != START_ROOM)
+	if (new_pipe->room != NULL && new_pipe->room->type != START_ROOM)
 			new_pipe->room->reserved = TRUE;
-	}
 	return (new_pipe);
 }
 
@@ -72,10 +70,15 @@ t_pipe	*ft_find_path(t_af *af)
 	ft_show_room(af, ft_find_last_room_path(path));
 	while (ft_find_last_room_path(path) != NULL && ft_find_last_room_path(path)->type != START_ROOM)
 	{
-		new_pipe = ft_find_best_room(ft_find_last_room_path(path));
+		new_pipe = ft_find_best_room(af, ft_find_last_room_path(path));
 		ft_push_back_pipe(path, new_pipe);
 		ft_show_room(af, ft_find_last_room_path(path));
 	}
 	printf("============================= END find_path\n");
+	if (ft_path_is_valid(path) && ft_path_len(path) == 1)
+	{
+		af->path_start_end_finded = TRUE;
+		printf("********(((((((((((((((&&&&&&&&&&&&&&&&&&&&&&&\n");
+	}
 	return (path);
 }

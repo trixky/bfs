@@ -58,6 +58,7 @@ typedef struct	s_af
 	int				ant;
 	int				next_is_start;
 	int				next_is_end;
+	int				path_start_end_finded;
 }				t_af;
 
 /*
@@ -169,13 +170,19 @@ void	ft_show_rooms_to_go(t_af *af, t_pipe *rooms_to_go);
 void	ft_bfs(t_af *af);
 
 /*
-**	---------------------- path.c
+**	---------------------- path-1.c
 */
 
-t_pipe	*ft_find_best_room(t_room *room);
+t_pipe	*ft_find_best_room(t_af *af, t_room *room);
 t_room	*ft_find_last_room_path(t_pipe *path);
 int		ft_path_len(t_pipe *path);
 int		ft_path_is_valid(t_pipe *path);
 t_pipe	*ft_find_path(t_af *af);
+
+/*
+**	---------------------- path-1.c
+*/
+
+t_pipe	*ft_free_path(t_pipe *path);
 
 #endif

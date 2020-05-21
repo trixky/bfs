@@ -60,7 +60,7 @@ t_pipe	*ft_add_rooms_to_go(t_af *af, t_room *room, t_pipe *pipes)
 	temp = room->pipes;
 	while (temp != NULL)
 	{
-		if (temp->room->traveled == FALSE && temp->room->reserved == FALSE)
+		if (temp->room->traveled == FALSE && temp->room->reserved == FALSE && temp->room->type != END_ROOM && temp->room->type != START_ROOM)
 		{
 			new_pipe = (t_pipe *)malloc(sizeof(t_pipe) * 1);
 			temp->room->dist = room->dist + 1;

@@ -61,6 +61,8 @@ t_pipe	*ft_push_back_pipe(t_pipe *pipes, t_pipe *pipe)
 
 	if (pipes == NULL)
 		return (pipe);
+	if (pipe == NULL)
+		return (pipes);
 	temp = pipes;
 	while (temp->next != NULL)
 		temp = temp->next;
@@ -76,26 +78,9 @@ t_pipe	*ft_pop_front_pipe(t_pipe *pipes)
 	{
 		if (pipes->next == NULL)
 			return (ft_free(pipes));
-		temp = pipes->next;
-		// temp = ft_free(pipes);
-		pipes = temp;
+		temp = pipes;
+		pipes = pipes->next;
+		temp = ft_free(temp);
 	}
 	return (pipes);
 }
-
-// int		ft_pipes_len(t_pipe *pipes)
-// {
-// 	int		len;
-// 	t_pipe	*temp;
-
-// 	len = 0;
-// 	if (pipes != NULL)
-// 	{
-// 		if (pipes->next == NULL)
-// 			return (ft_free(pipes));
-// 		temp = pipes->next;
-// 		temp = ft_free(pipes);
-// 		pipes = temp;
-// 	}
-// 	return (pipes);
-// }

@@ -10,4 +10,5 @@ void	ft_init_af(t_af *af)
 	af->next_is_end = NOTHING;
 	af->room_start = NULL;
 	af->room_end = NULL;
+	af->path_start_end_finded = FALSE;
 }
