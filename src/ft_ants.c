@@ -6,7 +6,7 @@
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 09:03:56 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/22 11:53:19 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/22 12:26:32 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_ant	*ft_create_ant(int ant_id)
 	if (!(ret = malloc(sizeof(t_ant))))
 		return (NULL);
 	ret->ant_id = ant_id;
-    ret->next =  NULL;
+	ret->next = NULL;
 	ret->room = NULL;
 	ret->end = FALSE;
 	return (ret);
