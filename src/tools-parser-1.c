@@ -7,7 +7,7 @@ int		ft_skip_comment(t_af *af, int pos)
 		while (af->conf[pos] && af->conf[pos] != '\n')
 			pos++;
 	else
-		return (pos);	
+		return (pos);
 	return (ft_skip_comment(af, ++pos));
 }
 

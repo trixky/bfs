@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-int 	ft_is_pipe_line(t_af *af, int pos)
+int		ft_is_pipe_line(t_af *af, int pos)
 {
 	int i;
 
@@ -24,10 +24,9 @@ int 	ft_is_pipe_line(t_af *af, int pos)
 
 int		ft_parse_pipe_line(t_af *af, int pos)
 {
-	int 	start;
+	int		start;
 	t_room	*room_a;
 	t_room	*room_b;
-
 
 	start = pos;
 	while (af->conf[pos] && af->conf[pos] != '-')
@@ -47,4 +46,3 @@ int		ft_parse_pipe_line(t_af *af, int pos)
 	ft_add_pipe(af, room_a, room_b);
 	return (++pos);
 }
-

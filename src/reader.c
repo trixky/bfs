@@ -12,9 +12,9 @@ char	*ft_clear_buff(t_af *af)
 
 void	ft_add_buff(t_af *af)
 {
-	int 	i;
+	int		i;
 	int		j;
-	int 	conf_len;
+	int		conf_len;
 	int		buff_len;
 	char	*new_conf;
 

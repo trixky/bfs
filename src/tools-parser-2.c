@@ -1,13 +1,11 @@
 #include "lem_in.h"
 
-
-
-int 	ft_is_room_char(char c)
+int		ft_is_room_char(char c)
 {
 	return (c > ' ' && c < 127);
 }
 
-int 	ft_is_room_line(t_af *af, int pos)
+int		ft_is_room_line(t_af *af, int pos)
 {
 	int start;
 
@@ -48,7 +46,6 @@ int		ft_parse_room_line(t_af *af, int pos)
 	t_room *room;
 
 	room = ft_create_and_init_room();
-
 	if (af->next_is_start == TRUE)
 	{
 		af->next_is_start = FALSE;

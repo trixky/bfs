@@ -1,6 +1,6 @@
 #include "lem_in.h"
 
-int	ft_str_to_nbr(t_af *af, char *str, int start, int end)
+int		ft_str_to_nbr(t_af *af, char *str, int start, int end)
 {
 	int nbr;
 
@@ -16,7 +16,7 @@ int	ft_str_to_nbr(t_af *af, char *str, int start, int end)
 	return (nbr);
 }
 
-int	ft_strcmp(char *a, int a_len, char *b, int b_len)
+int		ft_strcmp(char *a, int a_len, char *b, int b_len)
 {
 	int i;
 
