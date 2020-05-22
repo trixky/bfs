@@ -6,7 +6,7 @@
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 09:07:35 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/22 09:11:40 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/22 11:47:29 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,23 @@ static t_path	*ft_add_paths(t_af af, t_path *paths, t_pipe *path)
 	}
 	return (paths);
 }
+
+void       ft_print(t_path *paths)
+{
+    t_pipe *tmp;
+    
+    while (paths)
+    {
+        tmp = paths->path;
+        while(tmp)
+        {
+            printf("paths lenght = %d path step = %d\n",paths->length, tmp->room->dist);
+            tmp = tmp->next;
+        }
+        paths = paths->next;
+    }
+}
+
 
 void			*ft_ants(t_af *af)
 {
