@@ -6,40 +6,11 @@
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 09:05:23 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/22 12:22:49 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/22 13:47:06 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
-
-t_path	*ft_best_path(t_path *paths, int i)
-{
-	if (!paths)
-		return (NULL);
-	if (paths->next && paths->length > i + paths->length)
-		ft_best_path(paths->next, i);
-	return (paths);
-}
-
-void	ft_direct_ants(t_ant *ants, t_path *paths)
-{
-	int		i;
-	t_path	*tmp;
-
-	i = 0;
-	while (ants)
-	{
-		tmp = NULL;
-		if (i && paths->next && (i % paths->length == 0))
-			tmp = ft_best_path(paths->next, i);
-		if (tmp)
-			ants->next_path = tmp->path->next;
-		else
-			ants->next_path = paths->path->next;
-		ants = ants->next;
-		i++;
-	}
-}
 
 t_ant	*ft_move_ants_2(t_ant *ants, t_ant *moved_ants)
 {
@@ -89,7 +60,7 @@ void	ft_moving_ants(t_af af, t_ant *ants, t_path *paths)
 {
 	t_ant *moved_ants;
 
-	ft_direct_ants(ants, paths);
+	ft_direct_ants(af, ants, paths);
 	while (!ft_check_ants(af, ants))
 	{
 		moved_ants = ft_move_ants(af, ants, paths);

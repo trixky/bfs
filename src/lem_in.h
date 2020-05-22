@@ -216,5 +216,6 @@ char			*ft_display_ants_move(t_af *af, t_path *paths);
 void			ft_print_move(t_af af, t_ant *ants);
 void			ft_moving_ants(t_af af, t_ant *ants, t_path *paths);
 int				ft_check_ants(t_af af, t_ant *ants);
+void			ft_direct_ants(t_af af, t_ant *ants, t_path *paths);
 
 #endif
