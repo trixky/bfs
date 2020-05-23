@@ -42,7 +42,8 @@ int		ft_find_best_dist(t_room *room)
 	while (temp != NULL)
 	{
 		temp_dist = temp->room->dist;
-		if (temp->room->reserved == FALSE && temp_dist != NOTHING && (temp_dist < best_dist || temp_dist == NOTHING))
+		if (temp->room->reserved == FALSE && temp_dist != NOTHING &&
+				(temp_dist < best_dist || temp_dist == NOTHING))
 			best_dist = temp_dist;
 		temp = temp->next;
 	}
@@ -72,7 +73,8 @@ t_pipe	*ft_add_rooms_to_go(t_af *af, t_room *room, t_pipe *pipes)
 	temp = room->pipes;
 	while (temp != NULL)
 	{
-		if (temp->room->traveled == FALSE && temp->room->reserved == FALSE && temp->room->type != END_ROOM && temp->room->type != START_ROOM)
+		if (temp->room->traveled == FALSE && temp->room->reserved == FALSE &&
+				temp->room->type != END_ROOM && temp->room->type != START_ROOM)
 		{
 			new_pipe = (t_pipe *)malloc(sizeof(t_pipe) * 1);
 			temp->room->dist = room->dist + 1;

@@ -17,21 +17,27 @@ int		ft_is_room_char(char c)
 	return (c > ' ' && c < 127);
 }
 
-int		ft_is_room_line(t_af *af, int pos)
+int		ft_is_room_line_cut(t_af *af, int *pos, int *start)
 {
-	int start;
-
-	start = pos;
-	while (af->conf[pos] && af->conf[pos] != ' ')
+	*start = *pos;
+	while (af->conf[*pos] && af->conf[*pos] != ' ')
 	{
-		if (af->conf[pos] == '\n' || !ft_is_room_char(af->conf[pos]))
+		if (af->conf[*pos] == '\n' || !ft_is_room_char(af->conf[*pos]))
 			return (FALSE);
-		pos++;
+		(*pos)++;
 	}
 	if (start == pos)
 		return (FALSE);
-	pos++;
-	start = pos;
+	return (TRUE);
+}
+
+int		ft_is_room_line(t_af *af, int pos)
+{
+	int	start;
+
+	if (ft_is_room_line_cut(af, &pos, &start) == FALSE)
+		return (FALSE);
+	start = ++pos;
 	while (af->conf[pos] && af->conf[pos] != ' ')
 	{
 		if (af->conf[pos] == '\n' || !ft_is_number(af->conf[pos]))
@@ -40,8 +46,7 @@ int		ft_is_room_line(t_af *af, int pos)
 	}
 	if (start == pos)
 		return (FALSE);
-	pos++;
-	start = pos;
+	start = ++pos;
 	while (af->conf[pos] && af->conf[pos] != '\n')
 	{
 		if (!ft_is_number(af->conf[pos]))
@@ -53,7 +58,7 @@ int		ft_is_room_line(t_af *af, int pos)
 	return (TRUE);
 }
 
-int		ft_parse_room_line(t_af *af, int pos)
+t_room	*ft_parse_room_line_cut(t_af *af)
 {
 	t_room *room;
 
@@ -71,22 +76,24 @@ int		ft_parse_room_line(t_af *af, int pos)
 		room->type = END_ROOM;
 		af->room_end = room;
 	}
+	return (room);
+}
+
+int		ft_parse_room_line(t_af *af, int pos)
+{
+	t_room *room;
+
+	room = ft_parse_room_line_cut(af);
 	room->name_pos_start = pos;
 	while (af->conf[pos] && af->conf[pos] != ' ')
-	{
 		pos++;
-	}
 	room->name_pos_end = pos;
 	pos++;
 	while (af->conf[pos] && af->conf[pos] != ' ')
-	{
 		pos++;
-	}
 	pos++;
 	while (af->conf[pos] && af->conf[pos] != '\n')
-	{
 		pos++;
-	}
 	ft_add_room(af, room);
 	return (++pos);
 }

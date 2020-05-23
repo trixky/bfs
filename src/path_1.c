@@ -24,12 +24,12 @@ t_pipe	*ft_find_best_room(t_af *af, t_room *room)
 	new_pipe->room = NULL;
 	new_pipe->next = NULL;
 	temp = room->pipes;
-	while (temp != NULL)
+	while (temp != NULL && ((tr = temp->room) || TRUE))
 	{
-		tr = temp->room;
 		if (tr->reserved == FALSE && tr->dist != NOTHING && tr->type != END_ROOM
-		&& (tr->dist < best_dist || best_dist == NOTHING) && (room->type != END_ROOM
-		|| temp->room->type != START_ROOM || af->path_start_end_finded == FALSE))
+				&& (tr->dist < best_dist || best_dist == NOTHING) &&
+				(room->type != END_ROOM || temp->room->type != START_ROOM ||
+				af->path_start_end_finded == FALSE))
 		{
 			best_dist = tr->dist;
 			new_pipe->room = tr;

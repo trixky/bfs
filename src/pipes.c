@@ -26,40 +26,43 @@ int		ft_pipe_already_exist(t_af *af, t_room *room_a, t_room *room_b)
 	return (FALSE);
 }
 
-void	ft_add_pipe(t_af *af, t_room *room_a, t_room *room_b)
+void	ft_add_pipe_cut(t_af *af, t_room *room_a,
+		t_room *room_b, t_pipe *ta_tb_pa_pb[4])
 {
-	t_pipe *temp_pipe_a;
-	t_pipe *temp_pipe_b;
-	t_pipe *new_pipe_a;
-	t_pipe *new_pipe_b;
-
 	if (ft_room_cmp(room_a, room_b))
 		ft_exit(af, 11);
 	if (ft_pipe_already_exist(af, room_a, room_b))
 		ft_exit(af, 12);
-	new_pipe_a = (t_pipe *)malloc(sizeof(t_pipe) * 1);
-	new_pipe_a->room = room_b;
-	new_pipe_a->next = NULL;
-	temp_pipe_a = room_a->pipes;
-	if (temp_pipe_a == NULL)
-		room_a->pipes = new_pipe_a;
+	ta_tb_pa_pb[2] = (t_pipe *)malloc(sizeof(t_pipe) * 1);
+	ta_tb_pa_pb[2]->room = room_b;
+	ta_tb_pa_pb[2]->next = NULL;
+	ta_tb_pa_pb[0] = room_a->pipes;
+}
+
+void	ft_add_pipe(t_af *af, t_room *room_a, t_room *room_b)
+{
+	t_pipe	*ta_tb_pa_pb[4];
+
+	ft_add_pipe_cut(af, room_a, room_b, ta_tb_pa_pb);
+	if (ta_tb_pa_pb[0] == NULL)
+		room_a->pipes = ta_tb_pa_pb[2];
 	else
 	{
-		while (temp_pipe_a->next != NULL)
-			temp_pipe_a = temp_pipe_a->next;
-		temp_pipe_a->next = new_pipe_a;
+		while (ta_tb_pa_pb[0]->next != NULL)
+			ta_tb_pa_pb[0] = ta_tb_pa_pb[0]->next;
+		ta_tb_pa_pb[0]->next = ta_tb_pa_pb[2];
 	}
-	new_pipe_b = (t_pipe *)malloc(sizeof(t_pipe) * 1);
-	new_pipe_b->room = room_a;
-	new_pipe_b->next = NULL;
-	temp_pipe_b = room_b->pipes;
-	if (temp_pipe_b == NULL)
-		room_b->pipes = new_pipe_b;
+	ta_tb_pa_pb[3] = (t_pipe *)malloc(sizeof(t_pipe) * 1);
+	ta_tb_pa_pb[3]->room = room_a;
+	ta_tb_pa_pb[3]->next = NULL;
+	ta_tb_pa_pb[1] = room_b->pipes;
+	if (ta_tb_pa_pb[1] == NULL)
+		room_b->pipes = ta_tb_pa_pb[3];
 	else
 	{
-		while (temp_pipe_b->next != NULL)
-			temp_pipe_b = temp_pipe_b->next;
-		temp_pipe_b->next = new_pipe_b;
+		while (ta_tb_pa_pb[1]->next != NULL)
+			ta_tb_pa_pb[1] = ta_tb_pa_pb[1]->next;
+		ta_tb_pa_pb[1]->next = ta_tb_pa_pb[3];
 	}
 }
 

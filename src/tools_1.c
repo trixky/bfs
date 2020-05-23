@@ -51,7 +51,6 @@ void	ft_exit(t_af *af, int error)
 {
 	int	exit_code;
 
-	// free all af components
 	ft_free_rooms_and_their_paths(af);
 	af->conf = ft_free(af->conf);
 	exit_code = EXIT_SUCCESS;
@@ -60,5 +59,5 @@ void	ft_exit(t_af *af, int error)
 		ft_putstr_fd("ERROR\n", STDERR_FILENO);
 		exit_code = EXIT_FAILURE;
 	}
-	exit(exit_code);	
+	exit(exit_code);
 }
