@@ -6,7 +6,7 @@
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 09:07:35 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/22 13:35:11 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/23 08:17:16 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void			*ft_ants(t_af *af)
 		ft_bfs(af);
 		if (!(temp_path = ft_find_path(af)))
 			break ;
-		if (ft_path_len(temp_path) == 1 || !ft_path_is_valid(temp_path))
+		if (!ft_path_is_valid(temp_path))
 			break ;
 		if (!(paths = ft_add_paths(*af, paths, ft_revers_path(*af, temp_path))))
 			return (ft_free_paths(paths));
