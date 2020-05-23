@@ -6,7 +6,7 @@
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 09:07:35 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/23 08:17:16 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/23 13:36:26 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void		*ft_free_paths(t_path *paths)
 	return (NULL);
 }
 
-static t_pipe	*ft_revers_path(t_af af, t_pipe *path)
+static t_pipe	*ft_revers_path(t_pipe *path)
 {
 	t_pipe *tmp;
 	t_pipe *tmp2;
@@ -71,7 +71,7 @@ static t_pipe	*ft_revers_path(t_af af, t_pipe *path)
 	return (current);
 }
 
-static t_path	*ft_add_paths(t_af af, t_path *paths, t_pipe *path)
+static t_path	*ft_add_paths(t_path *paths, t_pipe *path)
 {
 	t_path *tmp;
 
@@ -97,7 +97,6 @@ static t_path	*ft_add_paths(t_af af, t_path *paths, t_pipe *path)
 void			*ft_ants(t_af *af)
 {
 	t_path	*paths;
-	t_path	*tmp_path;
 	t_pipe	*temp_path;
 	int		i;
 
@@ -114,7 +113,7 @@ void			*ft_ants(t_af *af)
 			break ;
 		if (!ft_path_is_valid(temp_path))
 			break ;
-		if (!(paths = ft_add_paths(*af, paths, ft_revers_path(*af, temp_path))))
+		if (!(paths = ft_add_paths(paths, ft_revers_path(temp_path))))
 			return (ft_free_paths(paths));
 		i++;
 	}
