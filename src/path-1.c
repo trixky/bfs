@@ -16,7 +16,7 @@ t_pipe	*ft_find_best_room(t_af *af, t_room *room)
 {
 	int		best_dist;
 	t_pipe	*new_pipe;
-	t_pipe	*temp;	
+	t_pipe	*temp;
 	t_room	*tr;
 
 	best_dist = NOTHING;
@@ -27,7 +27,9 @@ t_pipe	*ft_find_best_room(t_af *af, t_room *room)
 	while (temp != NULL)
 	{
 		tr = temp->room;
-		if (tr->reserved == FALSE && tr->dist != NOTHING && tr->type != END_ROOM && (tr->dist < best_dist || best_dist == NOTHING) && (room->type != END_ROOM || temp->room->type != START_ROOM || af->path_start_end_finded == FALSE))
+		if (tr->reserved == FALSE && tr->dist != NOTHING && tr->type != END_ROOM
+		&& (tr->dist < best_dist || best_dist == NOTHING) && (room->type != END_ROOM
+		|| temp->room->type != START_ROOM || af->path_start_end_finded == FALSE))
 		{
 			best_dist = tr->dist;
 			new_pipe->room = tr;
@@ -35,7 +37,7 @@ t_pipe	*ft_find_best_room(t_af *af, t_room *room)
 		temp = temp->next;
 	}
 	if (new_pipe->room != NULL && new_pipe->room->type != START_ROOM)
-			new_pipe->room->reserved = TRUE;
+		new_pipe->room->reserved = TRUE;
 	return (new_pipe);
 }
 
@@ -46,7 +48,7 @@ t_room	*ft_find_last_room_path(t_pipe *path)
 	temp = path;
 	while (temp->next != NULL)
 		temp = temp->next;
-	return (temp->room);	
+	return (temp->room);
 }
 
 int		ft_path_is_valid(t_pipe *path)
@@ -83,7 +85,8 @@ t_pipe	*ft_find_path(t_af *af)
 	path->next = NULL;
 	new_pipe = NULL;
 	ft_show_room(af, ft_find_last_room_path(path));
-	while (ft_find_last_room_path(path) != NULL && ft_find_last_room_path(path)->type != START_ROOM)
+	while (ft_find_last_room_path(path) != NULL
+	&& ft_find_last_room_path(path)->type != START_ROOM)
 	{
 		new_pipe = ft_find_best_room(af, ft_find_last_room_path(path));
 		ft_push_back_pipe(path, new_pipe);

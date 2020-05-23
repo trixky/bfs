@@ -47,7 +47,6 @@ int		ft_parse_rooms(t_af *af, int pos)
 
 int		ft_parse_pipes(t_af *af, int pos)
 {
-
 	int last_pos;
 
 	last_pos = NOTHING;

@@ -1,5 +1,5 @@
 
-NAME 				= Generator
+NAME 				= ft_generator
 
 CC 					= gcc
 

@@ -50,6 +50,7 @@ int		ft_is_number(char c)
 void	ft_exit(t_af *af, int error)
 {
 	int	exit_code;
+
 	// free all af components
 	ft_free_rooms_and_their_paths(af);
 	af->conf = ft_free(af->conf);

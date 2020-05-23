@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_moving_ants_2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabois <mabois@42.fr>                      +#+  +:+       +#+        */
+/*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/23 11:50:39 by mabois            #+#    #+#             */
-/*   Updated: 2020/05/23 11:50:41 by mabois           ###   ########.fr       */
+/*   Created: 2020/05/22 09:21:38 by paszhang          #+#    #+#             */
+/*   Updated: 2020/05/22 13:35:16 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int	main(void)
+int		ft_check_ants(t_af af, t_ant *ants)
 {
-	t_af	af;
-
-	ft_init_af(&af);
-	ft_read_config(&af);
-	ft_putstr_fd(af.conf, STDOUT_FILENO);
-	ft_putstr_fd("\n\n", STDOUT_FILENO);
-	ft_parser(&af);
-	ft_ants(&af);
-	ft_exit(&af, FALSE);
+	while (ants)
+	{
+		if (ants->room != af.room_end)
+			return (FALSE);
+		ants = ants->next;
+	}
+	return (TRUE);
 }
