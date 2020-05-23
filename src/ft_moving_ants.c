@@ -6,7 +6,7 @@
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 09:05:23 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/23 13:34:20 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/23 14:32:52 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_moving_ants(t_af af, t_ant *ants, t_path *paths)
 {
 	t_ant *moved_ants;
 
-	ft_direct_ants(af, ants, paths);
+	ft_direct_ants(ants, paths);
 	while (!ft_check_ants(af, ants))
 	{
 		moved_ants = ft_move_ants(af, ants);

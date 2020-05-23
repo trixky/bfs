@@ -6,7 +6,7 @@
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/23 11:50:32 by mabois            #+#    #+#             */
-/*   Updated: 2020/05/23 13:34:59 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/23 14:32:35 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,6 +233,6 @@ char			*ft_display_ants_move(t_af *af, t_path *paths);
 void			ft_print_move(t_af af, t_ant *ants);
 void			ft_moving_ants(t_af af, t_ant *ants, t_path *paths);
 int				ft_check_ants(t_af af, t_ant *ants);
-void			ft_direct_ants(t_af af, t_ant *ants, t_path *paths);
+void			ft_direct_ants(t_ant *ants, t_path *paths);
 
 #endif
