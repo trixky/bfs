@@ -1,28 +1,40 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mabois <mabois@42.fr>                      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/05/23 15:27:56 by mabois            #+#    #+#              #
+#    Updated: 2020/05/23 15:27:59 by mabois           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = lem_in
 
-SRC =	src/bfs.c\
-		src/ft_ants.c\
-		src/ft_direct_ants.c\
-		src/ft_moving_ants_2.c\
-		src/ft_moving_ants.c\
-		src/ft_setup_path.c\
-		src/init.c\
-		src/main.c\
-		src/parser.c\
-		src/path_1.c\
-		src/path_2.c\
-		src/pipes.c\
-		src/reader.c\
-		src/rooms_1.c\
-		src/rooms_2.c\
-		src/rooms_3.c\
-		src/tools_1.c\
-		src/tools_2.c\
-		src/tools_parser_1.c\
-		src/tools_parser_2.c\
-		src/tools_parser_3.c
+SRCS =	srcs/bfs.c\
+		srcs/ft_ants.c\
+		srcs/ft_direct_ants.c\
+		srcs/ft_moving_ants_2.c\
+		srcs/ft_moving_ants.c\
+		srcs/ft_setup_path.c\
+		srcs/init.c\
+		srcs/main.c\
+		srcs/parser.c\
+		srcs/path_1.c\
+		srcs/path_2.c\
+		srcs/pipes.c\
+		srcs/reader.c\
+		srcs/rooms_1.c\
+		srcs/rooms_2.c\
+		srcs/rooms_3.c\
+		srcs/tools_1.c\
+		srcs/tools_2.c\
+		srcs/tools_parser_1.c\
+		srcs/tools_parser_2.c\
+		srcs/tools_parser_3.c
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRCS:.c=.o)
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -39,14 +51,15 @@ $(NAME): $(OBJ)
 	${CC} ${FLAGS} ${OBJ} -o $@
 
 clean:
+	make clean -C generator
 	rm -rf $(OBJ)
 
 fclean: clean
 	rm -rf ${NAME}
-	@rm -rf ft_generator && cd generator && make fclean
+	make fclean -C generator
 
 bonus: all
-	@cd generator && make && mv ft_generator .. 
+	make -C generator
 	
 re: fclean all
 
