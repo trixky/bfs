@@ -102,7 +102,6 @@ void			*ft_ants(t_af *af)
 
 	i = 0;
 	ft_nb_pipe_start_end(af);
-	ft_show_rooms(af);
 	paths = NULL;
 	while (1)
 	{

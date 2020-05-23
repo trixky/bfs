@@ -79,20 +79,16 @@ t_pipe	*ft_find_path(t_af *af)
 	t_pipe	*path;
 	t_pipe	*new_pipe;
 
-	printf("============================= START find_path\n");
 	path = (t_pipe *)malloc(sizeof(t_pipe) * 1);
 	path->room = af->room_end;
 	path->next = NULL;
 	new_pipe = NULL;
-	ft_show_room(af, ft_find_last_room_path(path));
 	while (ft_find_last_room_path(path) != NULL
 	&& ft_find_last_room_path(path)->type != START_ROOM)
 	{
 		new_pipe = ft_find_best_room(af, ft_find_last_room_path(path));
 		ft_push_back_pipe(path, new_pipe);
-		ft_show_room(af, ft_find_last_room_path(path));
 	}
-	printf("============================= END find_path\n");
 	if (ft_path_is_valid(path) && ft_path_len(path) == 1)
 		af->path_start_end_finded = TRUE;
 	return (path);
