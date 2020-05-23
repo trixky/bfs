@@ -6,7 +6,7 @@
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/22 13:37:13 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/23 14:09:45 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/23 14:12:40 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_direct_ants(t_af af, t_ant *ants, t_path *paths)
 	{
 		if (!tmp)
 			tmp = paths;
-		if (tmp->length / (af.ant - i) >= 1 || tmp == paths)
+		if ((af.ant - i) / tmp->length >= 1 || tmp == paths)
 		{
 			ants->next_path = tmp->path->next;
 			ants = ants->next;
