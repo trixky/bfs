@@ -43,7 +43,11 @@ clean:
 
 fclean: clean
 	rm -rf ${NAME}
+	@rm -rf ft_generator && cd generator && make fclean
 
+bonus: all
+	@cd generator && make && mv ft_generator .. 
+	
 re: fclean all
 
 .PHONY: re, clean, fclean, all, bonus
