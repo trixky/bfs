@@ -14,9 +14,6 @@
 
 int		ft_is_pipe_line(t_af *af, int pos)
 {
-	int i;
-
-	i = 0;
 	while (af->conf[pos] && af->conf[pos] != '-')
 	{
 		if (af->conf[pos] == '\n' || !ft_is_room_char(af->conf[pos]))

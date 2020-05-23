@@ -12,7 +12,7 @@
 
 #include "lem_in.h"
 
-int		ft_pipe_already_exist(t_af *af, t_room *room_a, t_room *room_b)
+int		ft_pipe_already_exist(t_room *room_a, t_room *room_b)
 {
 	t_pipe *temp_pipe_a;
 
@@ -31,7 +31,7 @@ void	ft_add_pipe_cut(t_af *af, t_room *room_a,
 {
 	if (ft_room_cmp(room_a, room_b))
 		ft_exit(af, 11);
-	if (ft_pipe_already_exist(af, room_a, room_b))
+	if (ft_pipe_already_exist(room_a, room_b))
 		ft_exit(af, 12);
 	ta_tb_pa_pb[2] = (t_pipe *)malloc(sizeof(t_pipe) * 1);
 	ta_tb_pa_pb[2]->room = room_b;

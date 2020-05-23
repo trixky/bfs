@@ -52,4 +52,5 @@ char	*ft_read_config(t_af *af)
 		ft_add_buff(af);
 		ft_clear_buff(af);
 	}
+	return (af->conf);
 }

@@ -14,8 +14,6 @@
 
 void	ft_show_room(t_af *af, t_room *temp_room)
 {
-	t_pipe *temp_pipe;
-
 	if (temp_room != NULL)
 	{
 		ft_putstr_fd("           ", STDOUT_FILENO);

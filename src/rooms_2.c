@@ -65,7 +65,7 @@ void	ft_give_best_dist(t_room *room)
 	}
 }
 
-t_pipe	*ft_add_rooms_to_go(t_af *af, t_room *room, t_pipe *pipes)
+t_pipe	*ft_add_rooms_to_go(t_room *room, t_pipe *pipes)
 {
 	t_pipe	*temp;
 	t_pipe	*new_pipe;

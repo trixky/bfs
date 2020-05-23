@@ -180,7 +180,7 @@ int				ft_room_cmp(t_room *room_a, t_room *room_b);
 void			ft_clear_rooms(t_af *af);
 int				ft_find_best_dist(t_room *room);
 void			ft_give_best_dist(t_room *room);
-t_pipe			*ft_add_rooms_to_go(t_af *af, t_room *room, t_pipe *pipes);
+t_pipe			*ft_add_rooms_to_go(t_room *room, t_pipe *pipes);
 
 /*
 **	---------------------- rooms_3.c
@@ -194,7 +194,7 @@ void			ft_show_rooms(t_af *af);
 **	---------------------- pipes_1.c
 */
 
-int				ft_pipe_already_exist(t_af *af, t_room *room_a, t_room *room_b);
+int				ft_pipe_already_exist(t_room *room_a, t_room *room_b);
 void			ft_add_pipe_cut(t_af *af, t_room *room_a,
 				t_room *room_b, t_pipe *ta_tb_pa_pb[4]);
 void			ft_add_pipe(t_af *af, t_room *room_a, t_room *room_b);

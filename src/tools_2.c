@@ -45,8 +45,6 @@ void	ft_putnbr(int nbr)
 {
 	char c;
 
-	if (nbr > 2147483647 || nbr < -2147483648)
-		return ;
 	if (nbr == -2147483648)
 	{
 		ft_putstr_fd("-2147483648", STDOUT_FILENO);

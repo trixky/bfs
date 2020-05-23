@@ -37,6 +37,6 @@ void	ft_bfs(t_af *af)
 	{
 		temp_room = rooms_to_go->room;
 		rooms_to_go = ft_pop_front_pipe(rooms_to_go);
-		rooms_to_go = ft_add_rooms_to_go(af, temp_room, rooms_to_go);
+		rooms_to_go = ft_add_rooms_to_go(temp_room, rooms_to_go);
 	}
 }
