@@ -6,7 +6,7 @@
 /*   By: paszhang <paszhang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/17 00:35:58 by paszhang          #+#    #+#             */
-/*   Updated: 2020/05/18 10:19:32 by paszhang         ###   ########.fr       */
+/*   Updated: 2020/05/23 13:56:04 by paszhang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,6 @@ static void		ft_init_array(int *array, int size)
 
 static void		ft_room_coordoned(int room_id, int *array_x, int *array_y)
 {
-	int i;
-
-	i = 0;
 	ft_putnbr(room_id);
 	ft_putstr(" ");
 	ft_putnbr(array_x[room_id]);
