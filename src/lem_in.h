@@ -219,7 +219,7 @@ int				ft_path_is_valid(t_pipe *path);
 t_pipe			*ft_find_path(t_af *af);
 
 /*
-**	---------------------- path_1.c
+**	---------------------- path_2.c
 */
 
 t_pipe			*ft_free_path(t_pipe *path);
