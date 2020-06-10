@@ -7,11 +7,11 @@ The goal being that all the ants arrive as quickly as possible at their destinat
 
 - All ants start in the same start room.
 - All ants end in the same end room.
-- A room can only contain one ant at a time except for the start and end room.
+- A room can only contain one ant except for the start and end room.
 - An ant can only move one room at a time.
 - The program ends when all the ants have reached the end room.
 
-![Image description](https://i.ibb.co/VVY4wCD/Capture-d-cran-de-2020-06-10-22-58-16-1.png)
+![Image description](https://i.ibb.co/JcryMr1/Capture-d-cran-de-2020-06-10-23-17-32-1.png)
 
 First, the program displays the configuration of the anthill, then each line represents a turn with all its ant movements according to the following format: __L\[an\]-\[rn\]__ where __an__ is the ant number and __rn__ the room name.
 
