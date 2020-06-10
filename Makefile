@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = lem_in
+NAME = bfs
 
 SRCS =	srcs/bfs.c\
 		srcs/ft_ants.c\
@@ -58,9 +58,9 @@ fclean: clean
 	rm -rf ${NAME}
 	make fclean -C generator
 
-bonus: all
+extra: all
 	make -C generator
 	
 re: fclean all
 
-.PHONY: re, clean, fclean, all, bonus
+.PHONY: re, clean, fclean, all, extra

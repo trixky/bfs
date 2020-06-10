@@ -1,6 +1,6 @@
 *.o
 a.out
-lem_in
+bfs
 a.out
 src/a.out
 generator/generator
