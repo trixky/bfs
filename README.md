@@ -28,3 +28,9 @@ make extra
 # use the generator (Nb_ants | Nb_rooms | Nb_max_tubes/room | Nb_entry_tubes | Nb_exit_tubes)
 ./generator/generator 300 300 10 8 8 | ./bfs
 ```
+
+## Breadth First Search
+
+![Recordit GIF](https://abhinavmehndiratta.github.io/assets/bfs_gif.gif)
+
+Breadth-first search (BFS) is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node of a graph, sometimes referred to as a 'search key'), and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level.
