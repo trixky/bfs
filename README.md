@@ -1,6 +1,6 @@
 # bfs
 
-An implementation of the [bfs](https://en.wikipedia.org/wiki/Breadth-first_search) algorithm, illustrated by an anthill.
+An implementation of the [bfs](https://en.wikipedia.org/wiki/Breadth-first_search) algorithm, illustrated with an anthill.
 The goal being that all the ants arrive as quickly as possible at their destination, maximizing the flow, while avoiding traffic jams.
 
 ## Rules
